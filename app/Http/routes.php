@@ -62,7 +62,7 @@ $app->put('contact/{id}', function (Request $request, $id) use ($rules) {
     if ($validator->fails()) {
         return response($validator->errors(), 400);
     }
-    
+
     $record['updated_at'] = Carbon::now();
 
     DB::table('contacts')->where('id', $id)->update($record);
